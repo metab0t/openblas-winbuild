@@ -43,7 +43,7 @@ build_script:
   - cmake --build . --config Release
 
 after_build:
-  - 7z a openblas-build.zip lib %CONDA_INSTALL_LOCN%\Library\bin\flangrti.dll  %CONDA_INSTALL_LOCN%\Library\bin\flang.dll
+  - 7z a openblas-build.zip lib %CONDA_INSTALL_LOCN%\Library\bin\flangrti.dll  %CONDA_INSTALL_LOCN%\Library\bin\flang.dll %CONDA_INSTALL_LOCN%\Library\bin\libomp.dll
 
 artifacts:
   - path: openblas-build.zip
