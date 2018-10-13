@@ -43,7 +43,7 @@ build_script:
   - cmake --build . --config Release
 
 after_build:
-  - 7z a openblas-build.zip c:\projects\openblas-winbuild\lib\**
+  - 7z a openblas-build.zip lib
 
 test_script:
   - echo Running Test
