@@ -43,9 +43,16 @@ build_script:
   - cmake --build . --config Release
 
 after_build:
-  - 7z a openblas-build.zip lib
+  - 7z a openblas-build.zip lib %CONDA_INSTALL_LOCN%\Library\bin\flangrti.dll  %CONDA_INSTALL_LOCN%\Library\bin\flang.dll
+
+artifacts:
+  - path: openblas-build.zip
 
 test_script:
   - echo Running Test
   - cd utest
   - openblas_utest
+
+cache:
+  - c:\Miniconda36-x64
+  - c:\projects\openblas-winbuild\OpenBLAS-%VERSION%
