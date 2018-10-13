@@ -43,7 +43,7 @@ build_script:
   - cmake --build . --config Release
 
 after_build:
-  - 7z a openblas-build.zip %APPVEYOR_BUILD_FOLDER%\*.lib %APPVEYOR_BUILD_FOLDER%\*.dll
+  - 7z a openblas-build.zip c:\projects\openblas-winbuild\lib\**
 
 test_script:
   - echo Running Test
