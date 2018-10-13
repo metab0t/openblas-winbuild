@@ -28,8 +28,7 @@ install:
 
   - call %CONDA_INSTALL_LOCN%\Scripts\activate.bat
   - conda config --add channels conda-forge --force
-  - conda install -y cmake flang clangdev perl
-  - conda install -y -c isuruf kitware-ninja
+  - conda install -y cmake flang clangdev perl isuruf kitware-ninja
 
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
   - set "LIB=%CONDA_INSTALL_LOCN%\Library\lib;%LIB%"
@@ -47,7 +46,7 @@ after_build:
   - 7z a c:\openblas-build.zip lib %CONDA_INSTALL_LOCN%\Library\bin\flangrti.dll  %CONDA_INSTALL_LOCN%\Library\bin\flang.dll %CONDA_INSTALL_LOCN%\Library\bin\libomp.dll -y
 
 artifacts:
-  - path: c:\openblas-build.zip
+  - path: ..\..\openblas-build.zip
 
 test_script:
   - echo Running Test
