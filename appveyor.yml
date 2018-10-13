@@ -25,7 +25,9 @@ environment:
 
 install:
   - echo Download start
-  - ps: $source = "https://github.com/xianyi/OpenBLAS/archive/v$env:VERSION.zip" && $destination = "c:\projects\openblas.zip" && Invoke-WebRequest $source -OutFile $destination
+  - ps: $source = "https://github.com/xianyi/OpenBLAS/archive/v$env:VERSION.zip"
+  - ps: $destination = "c:\projects\openblas.zip"
+  - ps: Invoke-WebRequest $source -OutFile $destination
   - 7z x c:\projects\openblas.zip -oc:\projects\openblas-winbuild
   - cd OpenBLAS-%VERSION%
   - echo Download complete
