@@ -21,7 +21,7 @@ install:
   - ps: $source = "https://github.com/xianyi/OpenBLAS/archive/v$env:VERSION.zip"
   - ps: $destination = "c:\openblas.zip"
   - ps: Invoke-WebRequest $source -OutFile $destination
-  - 7z x c:\openblas.zip -oc:\openblas
+  - 7z x c:\openblas.zip -oc:\openblas -y
   - cd c:\openblas
   - cd OpenBLAS-%VERSION%
   - echo Download complete
@@ -44,7 +44,7 @@ build_script:
   - cmake --build . --config Release
 
 after_build:
-  - 7z a openblas-build.zip lib %CONDA_INSTALL_LOCN%\Library\bin\flangrti.dll  %CONDA_INSTALL_LOCN%\Library\bin\flang.dll %CONDA_INSTALL_LOCN%\Library\bin\libomp.dll
+  - 7z a openblas-build.zip lib %CONDA_INSTALL_LOCN%\Library\bin\flangrti.dll  %CONDA_INSTALL_LOCN%\Library\bin\flang.dll %CONDA_INSTALL_LOCN%\Library\bin\libomp.dll -y
 
 artifacts:
   - path: openblas-build.zip
