@@ -23,8 +23,7 @@ install:
   - ps: Invoke-WebRequest $source -OutFile $destination
   - 7z x c:\openblas.zip -oc:\openblas -y
   - cd c:\openblas
-  - ren OpenBLAS-%VERSION% OpenBLAS
-  - cd OpenBLAS
+  - cd OpenBLAS-%VERSION%
   - echo Download complete
 
   - call %CONDA_INSTALL_LOCN%\Scripts\activate.bat
@@ -56,4 +55,4 @@ test_script:
 
 cache:
   - c:\Miniconda36-x64
-  - c:\openblas
+  - c:\openblas\OpenBLAS-$(VERSION)
